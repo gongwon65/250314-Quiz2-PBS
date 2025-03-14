@@ -11,7 +11,7 @@ def load_csv(path: str) -> pd.DataFrame:
 
 def cvt_to_datetime(df: pd.DataFrame) -> pd.DataFrame:
     """df의 DateTime 칼럼을 datetime 형태로 변환합니다."""
-    df["DateTime"] = None
+    df["DateTime"] = pd.to_datetime(df['DateTime'])
     return df
 
 
@@ -21,12 +21,12 @@ def add_dayofweek(df: pd.DataFrame) -> pd.DataFrame:
     df["요일"] = None
     return df
 
-
+'''
 def get_mean_consumption(df: pd.DataFrame) -> pd.Series:
     """df의 요일별 전력 소비량의 평균을 구하여 반환합니다."""
     series_mean = None
     return series_mean
-
+'''
 
 def main():
     # 데이터 경로
@@ -38,15 +38,15 @@ def main():
     # 1. DateTime 칼럼을 datetime 형태로 변환
     df = cvt_to_datetime(df)
     print(df)
-
+    
     # 2. 요일 칼럼 추가
     df = add_dayofweek(df)
     print(df)
-
+    '''
     # 3. 요일별 전력 소비량의 평균 구하기
     s_mean = get_mean_consumption(df)
     print(s_mean)
-
+    '''
 
 if __name__ == "__main__":
     main()

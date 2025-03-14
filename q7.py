@@ -63,7 +63,7 @@ def remove_outlier(dataframe, list_idx):
 df = load_csv(DATA_PATH)
 
 # 1-1. del_missing 함수로 df의 결측치을 처리하여 df에 덮어씌웁니다.
-df = None
+df = del_missing(df)
 
 # 불러온 DataFrame의 각 인덱스의 값들을 변수로 저장합니다.
 fare_amount = df['fare_amount']
@@ -76,12 +76,15 @@ dropoff_latitude = df['dropoff_latitude']
 # 1-2. remove_outlier()을 사용하여 이상치를 제거합니다.
 # remove_outlier()가 어떤 인자들을 받는지 확인하세요.
 remove_index = outlier_index()
-df = None
+df = remove_outlier(df, remove_index)
 
 # 2. df.corr()을 사용하여 상관 계수 값 계산
-corr_df = None
+corr_df = df.iloc[:, 1:].corr()
 
 # seaborn을 사용하여 heatmap 출력
 plt.figure(figsize=(15,10))
 sns.heatmap(corr_df, annot=True, cmap='PuBu')
 plt.savefig("plot.png")
+
+
+

@@ -14,7 +14,9 @@ def get_data() -> pd.DataFrame:
 def add_type(df: pd.DataFrame) -> pd.DataFrame:
     "지시사항에 따라 df에 Type칼럼을 추가하고 반환합니다."
 
-    None
+    df['Type'] = np.where(df.loc[:,'Age'] >= 19, 'adult',
+                          np.where(df.loc[:,'Sex'] == 'female', 'girl', 'boy'))
+    
 
     return df
 

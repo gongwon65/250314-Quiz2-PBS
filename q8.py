@@ -17,8 +17,8 @@ def cvt_to_datetime(df: pd.DataFrame) -> pd.DataFrame:
 
 def add_dayofweek(df: pd.DataFrame) -> pd.DataFrame:
     """df에 DateTime 칼럼의 요일이 저장된 "요일" 칼럼을 새로 추가합니다."""
-    df["요일"] = None
-    df["요일"] = None
+    df["요일"] = df['DateTime'].astype(int)&7
+    #df["요일"] = WEEK_KOR
     return df
 
 '''

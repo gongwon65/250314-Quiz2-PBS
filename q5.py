@@ -18,7 +18,11 @@ for data in pickup_datetime :
     data = data.split(' ')
     year_data.append(data[0])
     time.append(data[1])
-
+'''
+for data in pickup_dateteme :
+    year_data.append(data.split()[0])
+    time.append(data.split()[1])
+'''
 # 연월일 변수에서 각각의 '연도', '월', '일'을 추출하여 years, months, days 변수에 넣어줍니다.
 years = []
 months = []
@@ -31,11 +35,10 @@ for data in year_data:
     days.append(data[2])
 
 #시간만 따로 int의 형태로 추출합니다.
-hours = []
-
+hours = [] #[int(i.split(':')[0]) for i in time]
 for data in time:
     data = data.split(':')
-    hours.append(data[0])
+    hours.append(int(data[0]))
 
 
 #각 변수의 상위 10개씩만 출력해서 추출이 제대로 되었는지 확인해봅시다.

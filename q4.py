@@ -89,3 +89,4 @@ new = remove_outlier(df, remove_index)
 # 이상치를 제거한 후의 데이터를 살펴봅니다.
 print('\n이상치를 제거한 후의 데이터:')
 new.info()
+
